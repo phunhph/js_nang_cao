@@ -1,0 +1,42 @@
+[
+  {
+    "teams": ["Bayern Munich", "Real Madrid"],
+    "players": {
+      "Bayern Munich": [
+        "Neuer",
+        "Kimmich",
+        "Boateng",
+        "Alaba",
+        "Davies",
+        "Goretzka",
+        "Muller",
+        "Coman",
+        "Sane",
+        "Lewandowski"
+      ],
+      "Real Madrid": [
+        "Courtois",
+        "Carvajal",
+        "Varane",
+        "Militao",
+        "Marcelo",
+        "Casemiro",
+        "Modric",
+        "Kroos",
+        "Vinicius",
+        "Benzema"
+      ]
+    },
+    "odds": {
+      "team1": 2.25,
+      "draw": 3.0,
+      "team2": 2.75
+    },
+    "game": {
+      "goals": {
+        "team1": ["Lewandowski", "Muller"],
+        "team2": ["Benzema"]
+      }
+    }
+  }
+]
