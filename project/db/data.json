@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullname": "namnDn",
+      "phone": "0909",
+      "email": "namdn@gmail.com",
+      "age": "44",
+      "gender": "true"
+    },
+    {
+      "id": 3,
+      "fullname": "Bao Bao",
+      "phone": "0905123456",
+      "email": "baobao@gmail.com",
+      "age": 22,
+      "gender": false
+    },
+    {
+      "fullname": "Fpoly Da Nang",
+      "phone": "0909555666",
+      "email": "danang@gmail.com",
+      "age": "33",
+      "gender": "true",
+      "id": 4
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
