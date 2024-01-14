@@ -1,5 +1,6 @@
 const url = "http://localhost:4000/users";
 const table = document.getElementById("table");
+const userForm = document.querySelector(".form-user");
 getAllUsers();
 function getAllUsers() {
   fetch(url)
@@ -19,7 +20,7 @@ const renderUser = (user) => {
       <td>${user.email}</td>
       <td>${user.password}</td>
       <td>
-        <a class="btn-edit btn btn-primary btn-sm">Edit</a> |
+        <a class="btn-edit btn btn-primary btn-sm" data-target="#exampleModalCenter" data-toggle="modal">Edit</a> |
         <a class="btn-del btn btn-danger btn-sm">Del</a>
       </td>
     </tr>`;
@@ -58,12 +59,75 @@ const renderUser = (user) => {
   const btnEdit = document.querySelector(`[data-id='${user._id}'] .btn-edit`);
   if (btnEdit) {
     btnEdit.addEventListener("click", (event) => {
-      // Implement edit logic here
-      console.log("Edit button clicked for user with id:", user._id);
+      fetch(`${url}/${user._id}`, {
+        method: "GET",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          data = data.data;
+          userForm.name.value = data.name;
+          userForm.email.value = data.email;
+          userForm.password.value = data.password;
+          userForm.id.value = data._id;
+        });
     });
   } else {
     console.error(
       `Button with class 'btn-edit' not found for user with id ${user._id}`
     );
   }
+};
+// create user
+
+// Thêm lắng nghe sự kiện cho sự kiện nộp biểu mẫu
+userForm.addEventListener("submit", function (event) {
+  event.preventDefault(); // Ngăn chặn hành vi mặc định của việc nộp biểu mẫu
+  if (userForm.id) {
+    updateUser(userForm);
+  } else {
+    createUser(userForm);
+  }
+});
+
+// Hàm để tạo mới người dùng
+const createUser = (userData) => {
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: userData.name.value,
+      email: userData.email.value,
+      password: userData.password.value,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      const newUser = data.data;
+      renderUser(newUser);
+    })
+    .catch((error) => {
+      console.error("Lỗi tạo mới người dùng:", error.message);
+    });
+};
+
+// hàm sửa người dùng
+const updateUser = (userData) => {
+  fetch(`${url}/${userData.id.value}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: userData.name.value,
+      email: userData.email.value,
+      password: userData.password.value,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => {})
+    .catch((error) => {
+      console.error("Error updating user:", error.message);
+    });
 };
