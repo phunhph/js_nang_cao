@@ -19,10 +19,68 @@
         type="button"
         class="btn btn-primary"
         data-toggle="modal"
-        data-target="#exampleModalCenter"
+        data-target="#exampleModalCenter1"
       >
         Register User
       </button>
+      <div
+        class="modal fade"
+        id="exampleModalCenter1"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                Register New User
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form class="form-user1">
+                <div class="form-group">
+                  <label>FullName</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    placeholder="Enter Fullname"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    placeholder="Enter Email"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="password"
+                    placeholder="Enter age"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- Modal -->
       <div
         class="modal fade"

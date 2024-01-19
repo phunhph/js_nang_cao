@@ -1,6 +1,7 @@
 const url = "http://localhost:4000/users";
 const table = document.getElementById("table");
 const userForm = document.querySelector(".form-user");
+const userFormadd = document.querySelector(".form-user1");
 getAllUsers();
 function getAllUsers() {
   fetch(url)
@@ -88,7 +89,10 @@ userForm.addEventListener("submit", function (event) {
     createUser(userForm);
   }
 });
-
+userFormadd.addEventListener("submit", function (event) {
+  event.preventDefault(); // Ngăn chặn hành vi mặc định của việc nộp biểu mẫu
+  createUser(userFormadd);
+});
 // Hàm để tạo mới người dùng
 const createUser = (userData) => {
   fetch(url, {
