@@ -1,38 +1,40 @@
 {
-  "users": [
+  "data": [
     {
-      "id": 1,
-      "fullname": "namnDn",
-      "phone": "0909",
-      "email": "namdn@gmail.com",
-      "age": "44",
-      "gender": "true"
+      "_id": "65a4bba9f64beba887f67d18",
+      "name": "Phú Nguyễn",
+      "email": "phunhph33261@fpt.edu.vn",
+      "password": "123456789Aa@",
+      "createdAt": "2024-01-15T04:59:21.315Z",
+      "updatedAt": "2024-01-19T04:18:46.685Z",
+      "__v": 0
     },
     {
-      "id": 3,
-      "fullname": "Bao Bao",
-      "phone": "0905123456",
-      "email": "baobao@gmail.com",
-      "age": 22,
-      "gender": false
+      "_id": "65a4bc83f64beba887f67d20",
+      "name": "Phú Nguyễn",
+      "email": "phunhph33261@fpt.edu.vn",
+      "password": "1234567890",
+      "createdAt": "2024-01-15T05:02:59.962Z",
+      "updatedAt": "2024-01-15T05:02:59.962Z",
+      "__v": 0
     },
     {
-      "fullname": "Fpoly Da Nang",
-      "phone": "0909555666",
-      "email": "danang@gmail.com",
-      "age": "33",
-      "gender": "true",
-      "id": 4
-    }
-  ],
-  "comments": [
+      "_id": "65a6557898c0893893383047",
+      "name": "Phú Nguyễn",
+      "email": "phunhph33261@fpt.edu.vn",
+      "password": "123",
+      "createdAt": "2024-01-16T10:07:52.632Z",
+      "updatedAt": "2024-01-16T10:07:52.632Z",
+      "__v": 0
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "_id": "65a9f880bc77df625eeeb60b",
+      "name": "Phú Nguyễn",
+      "email": "longhh7@fpt.edu.vn",
+      "password": "99999999Aa@",
+      "createdAt": "2024-01-19T04:20:16.856Z",
+      "updatedAt": "2024-01-19T04:20:16.856Z",
+      "__v": 0
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
