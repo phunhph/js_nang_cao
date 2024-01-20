@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Lab 3</title>
+  </head>
+  <body>
+    <!-- Phần hiển thị kết quả cho LAB 3.2 -->
+    <div>
+      <h2>LAB 3.2: Working with Array - Project "Bankist" App</h2>
+      <div id="lab3-2-result"></div>
+    </div>
+
+    <!-- Phần hiển thị kết quả cho LAB 3.3 -->
+    <div>
+      <h2>LAB 3.3: Working with Array - Coding Challenge #1</h2>
+      <div id="lab3-3-result"></div>
+    </div>
+
+    <!-- Phần hiển thị kết quả cho LAB 3.4 -->
+    <div>
+      <h2>LAB 3.4: Working with Array - Coding Challenge #2</h2>
+      <div id="lab3-4-result"></div>
+    </div>
+
+    <script>
+      // Bài 3.2
+      function checkDogs(dogsJulia, dogsKate) {
+        const juliaDogsCopy = dogsJulia.slice(1, -2);
+        const allDogs = [...juliaDogsCopy, ...dogsKate];
+
+        const result = allDogs.map((dog, index) => {
+          const dogAgeType = dog >= 3 ? "adult" : "puppy";
+          return `Dog number ${index + 1} is an ${dogAgeType}`;
+        });
+
+        document.getElementById("lab3-2-result").innerHTML =
+          result.join("<br>");
+      }
+
+      // Test Data 1
+      const dogsJulia1 = [3, 5, 2, 12, 7];
+      const dogsKate1 = [4, 1, 15, 8, 3];
+      checkDogs(dogsJulia1, dogsKate1);
+
+      // Test Data 2
+      const dogsJulia2 = [9, 16, 6, 8, 3];
+      const dogsKate2 = [10, 5, 6, 1, 4];
+      checkDogs(dogsJulia2, dogsKate2);
+
+      // Bài 3.3
+      function calcAverageHumanAge(ages) {
+        const dogAgesInHumanYears = ages.map((age) =>
+          age <= 2 ? age * 2 : 16 + age * 4
+        );
+        const adultsDogAges = dogAgesInHumanYears.filter((age) => age >= 18);
+        const averageAge =
+          adultsDogAges.reduce((acc, age) => acc + age, 0) /
+          adultsDogAges.length;
+        return averageAge;
+      }
+
+      // Test Data 1
+      const ages1 = [5, 2, 4, 1, 15, 8, 3];
+      document.getElementById("lab3-3-result").innerHTML =
+        "Average human age for Test Data 1: " + calcAverageHumanAge(ages1);
+
+      // Test Data 2
+      const ages2 = [16, 6, 10, 5, 6, 1, 4];
+      document.getElementById("lab3-3-result").innerHTML +=
+        "<br>Average human age for Test Data 2: " + calcAverageHumanAge(ages2);
+
+      // Bài 3.4
+      const dogs = [
+        { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+        { weight: 8, curFood: 200, owners: ["Matilda"] },
+        { weight: 13, curFood: 275, owners: ["Sarah", "John"] },
+        { weight: 32, curFood: 340, owners: ["Michael"] },
+      ];
+
+      dogs.forEach((dog) => {
+        dog.recommendedFood = Math.trunc(dog.weight ** 0.75 * 28);
+
+        if (dog.owners.includes("Sarah")) {
+          const message =
+            dog.curFood > dog.recommendedFood
+              ? "eats too much!"
+              : "eats too little!";
+          document.getElementById(
+            "lab3-4-result"
+          ).innerHTML += `Sarah's dog ${message}<br>`;
+        }
+      });
+
+      const ownersEatTooMuch = dogs
+        .filter((dog) => dog.curFood > dog.recommendedFood)
+        .flatMap((dog) => dog.owners);
+      const ownersEatTooLittle = dogs
+        .filter((dog) => dog.curFood < dog.recommendedFood)
+        .flatMap((dog) => dog.owners);
+
+      document.getElementById(
+        "lab3-4-result"
+      ).innerHTML += `${ownersEatTooMuch.join(
+        " and "
+      )}'s dogs eat too much!<br>`;
+      document.getElementById(
+        "lab3-4-result"
+      ).innerHTML += `${ownersEatTooLittle.join(
+        " and "
+      )}'s dogs eat too little!<br>`;
+
+      const correctPortions = dogs.every(
+        (dog) =>
+          dog.curFood >= dog.recommendedFood * 0.9 &&
+          dog.curFood <= dog.recommendedFood * 1.1
+      );
+      document.getElementById(
+        "lab3-4-result"
+      ).innerHTML += `Is there any dog with the correct portion? ${correctPortions}<br>`;
+
+      const reasonablePortions = dogs.some(
+        (dog) =>
+          dog.curFood >= dog.recommendedFood * 0.9 &&
+          dog.curFood <= dog.recommendedFood * 1.1
+      );
+      document.getElementById(
+        "lab3-4-result"
+      ).innerHTML += `Is there any dog with a reasonable portion? ${reasonablePortions}<br>`;
+
+      const dogsWithReasonablePortions = dogs.filter(
+        (dog) =>
+          dog.curFood >= dog.recommendedFood * 0.9 &&
+          dog.curFood <= dog.recommendedFood * 1.1
+      );
+      document.getElementById("lab3-4-result").innerHTML +=
+        "Dogs with reasonable portions: " +
+        dogsWithReasonablePortions.map(
+          (dog) => dog.owners.join(" and ") + "<br>"
+        );
+
+      const sortedDogs = dogs
+        .slice()
+        .sort((a, b) => a.recommendedFood - b.recommendedFood);
+      document.getElementById("lab3-4-result").innerHTML +=
+        "Sorted dogs by recommended food: " +
+        sortedDogs.map((dog) => dog.owners.join(" and ") + "<br>");
+    </script>
+  </body>
+</html>
